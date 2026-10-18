@@ -1,0 +1,1 @@
+GitHub deposuna ZIP dosyasinin ICINDEKI dosyalari yukleyin. Mevcut diger dosyalari silmeyin. Ozellikle modern kategori icin eski 15 Pexels fotografinin GitHub deposunda kalmasi gerekiyor. Bu pakette yeni kategoriler, 62 renovasyon fotografi ve temsili maintenance gorselleri vardir.

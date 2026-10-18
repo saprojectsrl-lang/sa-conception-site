@@ -1,5 +1,5 @@
 const translations = {
-fr: {
+fr: {maintenanceTitle:'Entretien & Dépannage 24/7',maintenanceIntro:'Petits travaux, entretien technique et interventions urgentes pour particuliers et professionnels.',maintenanceCta:'Contactez-nous directement sur WhatsApp',maintenanceDesc:'Décrivez votre problème et envoyez des photos pour demander une intervention.',maintenanceButton:'Ouvrir WhatsApp ↗',
 topline:"Construction • Rénovation • Maintenance en Belgique",brandSub:"CONSTRUCTION & PROJETS",navServices:"Services",navAbout:"À propos",navGallery:"Galerie",navPrices:"Tarifs",navContact:"Contact",
 heroEyebrow:"VOTRE PARTENAIRE CONSTRUCTION EN BELGIQUE",heroTitle:"Bâtissons vos idées.<br><em>Construisons l’avenir.</em>",heroText:"De la rénovation à la construction neuve, des projets résidentiels aux solutions préfabriquées, S.A Conception vous accompagne à chaque étape.",heroCta:"Demander un devis",heroSecondary:"Découvrir nos services",heroNote:"Service de maintenance 24h/24 et 7j/7 — contactez-nous pour connaître les disponibilités.",
 trust1:"Construction résidentielle & industrielle",trust2:"Rénovation & nouveaux bâtiments",trust3:"Tiny houses & maisons préfabriquées",trust4:"Maintenance et service",
@@ -14,7 +14,7 @@ contactEyebrow:"CONTACTEZ-NOUS",contactTitle:"Parlons de<br><em>votre projet.</e
 cat_modern:"Construction moderne",cat_renovation:"Rénovation",cat_prefab:"Maisons préfabriquées",cat_tiny:"Tiny houses",cat_industrial:"Construction industrielle",cat_container:"Maisons containers",galleryQuestion:"Quel type de projet souhaitez-vous réaliser ?",galleryRequestHelp:"Présentez votre projet et vos coordonnées pour recevoir une réponse.",galleryComing:"Photos à venir.",galleryIntro:"Découvrez nos catégories et choisissez le projet qui vous inspire.",
 formSending:"Envoi en cours…",formSuccess:"Demande transmise. Si c’est votre premier envoi, confirmez l’adresse e-mail dans le message de FormSubmit.",formError:"L’envoi a échoué. Veuillez réessayer ou nous contacter directement."
 },
-tr: {
+tr: {maintenanceTitle:'Bakım ve Acil Teknik Servis 7/24',maintenanceIntro:'Küçük tadilat, teknik bakım ve konutlar ile işletmeler için acil müdahale.',maintenanceCta:'WhatsApp üzerinden doğrudan iletişime geçin',maintenanceDesc:'Sorununuzu açıklayın ve müdahale talebi için fotoğraf gönderin.',maintenanceButton:'WhatsApp’ı aç ↗',
 topline:"Belçika’da inşaat • Renovasyon • Bakım",brandSub:"İNŞAAT VE PROJELER",navServices:"Hizmetler",navAbout:"Hakkımızda",navGallery:"Galeri",navPrices:"Fiyatlandırma",navContact:"İletişim",
 heroEyebrow:"BELÇİKA’DA İNŞAAT ÇÖZÜM ORTAĞINIZ",heroTitle:"Fikirlerinizi hayata geçirelim.<br><em>Geleceği birlikte inşa edelim.</em>",heroText:"Renovasyondan yeni bina yapımına, konut ve endüstriyel projelerden prefabrik çözümlere kadar S.A Conception projenizin her aşamasında yanınızda.",heroCta:"Teklif isteyin",heroSecondary:"Hizmetlerimizi keşfedin",heroNote:"7/24 bakım hizmeti — müsaitlik ve hizmet kapsamı için bizimle iletişime geçin.",
 trust1:"Konut ve endüstriyel inşaat",trust2:"Renovasyon ve yeni binalar",trust3:"Tiny house ve prefabrik evler",trust4:"Bakım ve servis",
@@ -29,7 +29,7 @@ contactEyebrow:"BİZE ULAŞIN",contactTitle:"Projenizi<br><em>konuşalım.</em>"
 cat_modern:"Modern inşaat",cat_renovation:"Renovasyon",cat_prefab:"Prefabrik evler",cat_tiny:"Tiny house",cat_industrial:"Endüstriyel inşaat",cat_container:"Konteyner evler",galleryQuestion:"Nasıl bir proje gerçekleştirmek istiyorsunuz?",galleryRequestHelp:"Projenizi ve iletişim bilgilerinizi yazın, sizinle iletişime geçelim.",galleryComing:"Fotoğraflar yakında eklenecek.",galleryIntro:"Kategorileri inceleyin ve size uygun projeyi keşfedin.",
 formSending:"Gönderiliyor…",formSuccess:"Talep iletildi. İlk gönderimse FormSubmit'in e-posta doğrulama bağlantısını onaylayın.",formError:"Gönderim başarısız oldu. Tekrar deneyin veya doğrudan iletişime geçin."
 },
-en: {
+en: {maintenanceTitle:'Maintenance & Emergency Repairs 24/7',maintenanceIntro:'Small repairs, technical maintenance and urgent assistance for homes and businesses.',maintenanceCta:'Contact us directly on WhatsApp',maintenanceDesc:'Describe the problem and send photos to request a visit.',maintenanceButton:'Open WhatsApp ↗',
 topline:"Construction • Renovation • Maintenance in Belgium",brandSub:"CONSTRUCTION & PROJECTS",navServices:"Services",navAbout:"About",navGallery:"Gallery",navPrices:"Pricing",navContact:"Contact",
 heroEyebrow:"YOUR CONSTRUCTION PARTNER IN BELGIUM",heroTitle:"Building your ideas.<br><em>Creating what’s next.</em>",heroText:"From renovation and new builds to residential, industrial and prefabricated projects, S.A Conception can discuss your project at every stage.",heroCta:"Request a quote",heroSecondary:"Explore our services",heroNote:"24/7 maintenance service — contact us to confirm availability.",
 trust1:"Residential & industrial construction",trust2:"Renovation & new buildings",trust3:"Tiny houses & prefabricated homes",trust4:"Maintenance and service",
@@ -96,8 +96,8 @@ for (const formId of ['galleryContactForm', 'contactForm']) {
     try {
       const response = await fetch('https://formsubmit.co/ajax/saprojectsrl@gmail.com', {
         method: 'POST',
-        headers: { 'Accept': 'application/json' },
-        body: data
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify(Object.fromEntries(data.entries()))
       });
       const result = await response.json();
       if (!response.ok || result.success === false || result.success === 'false') {
